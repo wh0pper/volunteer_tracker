@@ -45,7 +45,7 @@ get('/project/:id/edit') do
   erb(:edit)
 end
 
-patch('/project/:id') do
+patch('/project/:id/edit') do
   project_id = params[:id]
   new_title = params[:title]
   @project = Project.find(project_id)
@@ -53,4 +53,11 @@ patch('/project/:id') do
   @volunteers = @project.volunteers
   @available_volunteers = Volunteer.all
   erb(:project)
+end
+
+delete('/project/:id/edit') do
+  project_id = params[:id]
+  @project = Project.find(project_id)
+  @project.delete
+  redirect '/'
 end
