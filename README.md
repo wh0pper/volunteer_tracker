@@ -35,7 +35,8 @@ Complete for Epicodus - Ruby Week 3 Code Review
   4. As a non-profit employee, I want to view all volunteers on a certain project.
 
 
-
+## Known bugs
+  User should not try to enter multiple projects with the same name 
 
 ## Setup/Installation Requirements
   1. install ruby 2.2.2

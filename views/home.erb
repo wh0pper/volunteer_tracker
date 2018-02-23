@@ -1,0 +1,18 @@
+<div class="well">
+  <h4>Add a new project:</h4>
+  <form class="form-group" action="/" method="post">
+    <input class="form-control" type="text" name="project_title" placeholder="Project title">
+    <button type="submit" class="btn btn-primary" name="new_project">Add</button>
+  </form>
+  <% if !@project_list.empty? %>
+    <h4>Current projects:</h4>
+    <p>click on project name to view details</p>
+    <table>
+      <% @project_list.each do |project| %>
+        <tr>
+          <th><a href="/project/<%=project.id%>"><%= project.title %></a></th>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'volunteer'
+require './lib/volunteer'
 
 
 class Project
