@@ -59,7 +59,7 @@ describe Volunteer do
     it 'assigns a project id to a volunteer in the DB' do
       project1 = Project.new({:title => 'Project Assignment Test', :id => nil})
       project1.save
-      volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
       volunteer1.assign(project1.id)
       expect(volunteer1.project_id). to eq project1.id
@@ -68,7 +68,7 @@ describe Volunteer do
 
   describe '.get_id' do
     it 'returns id given volunteer name' do
-      volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
       expect(Volunteer.get_id('Jane')).to eq volunteer1.id
     end
@@ -76,7 +76,7 @@ describe Volunteer do
 
   describe '#update' do
     it 'updates volunteer info in ID and instance' do
-      volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
       volunteer1.update({:name => 'Jack'})
       expect(volunteer1.name).to eq 'Jack'
@@ -85,7 +85,7 @@ describe Volunteer do
 
   describe '#delete' do
     it 'removed volunteer from database' do
-      volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
       volunteer1.delete
       expect(Volunteer.all).to eq []
