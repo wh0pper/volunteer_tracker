@@ -21,6 +21,8 @@ post('/') do
   erb(:home)
 end
 
+
+
 get('/project/:id') do
   project_id = params[:id]
   @project = Project.find(project_id)
@@ -32,6 +34,22 @@ end
 post('/project/:id') do
   project_id = params[:id]
   @project = Project.find(project_id)
+  @volunteers = @project.volunteers
+  @available_volunteers = Volunteer.all
+  erb(:project)
+end
+
+get('/project/:id/edit') do
+  project_id = params[:id]
+  @project = Project.find(project_id)
+  erb(:edit)
+end
+
+patch('/project/:id') do
+  project_id = params[:id]
+  new_title = params[:title]
+  @project = Project.find(project_id)
+  @project.update({:title => new_title})
   @volunteers = @project.volunteers
   @available_volunteers = Volunteer.all
   erb(:project)
