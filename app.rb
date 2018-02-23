@@ -85,3 +85,10 @@ patch('/volunteer/:id') do
   @volunteer.update({:name => new_name})
   erb(:volunteer)
 end
+
+delete('/volunteer/:id') do
+  volunteer_id = params[:id]
+  @volunteer = Volunteer.find(volunteer_id)
+  @volunteer.delete
+  redirect '/'
+end

@@ -9,4 +9,9 @@
     <button type="submit" class="btn btn-warning">Update Volunteer</button>
   </form>
 
+  <form class="form-group" action="/volunteer/<%= @volunteer.id %>" method="post">
+    <input name="_method" type="hidden" value="delete"/>
+    <button type="submit" class="btn btn-danger">Delete Volunteer</button>
+  </form>
+
 </div>
