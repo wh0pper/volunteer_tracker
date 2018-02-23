@@ -1,0 +1,14 @@
+<div class="well">
+  <h1><%= @project.title %></h1>
+  <form class="form-group" action="/project/<%= @project.id %>/edit" method="post">
+    <input name="_method" type="hidden" value="patch"/>
+    <label for="title">Update title:</label>
+    <input class="form-control" name="title" placeholder="<%= @project.title %>"><br>
+    <button type="submit" class="btn btn-warning">Update Project</button>
+  </form>
+
+  <form class="form-group" action="/project/<%= @project.id %>/edit" method="post">
+    <input name="_method" type="hidden" value="delete"/><br>
+    <button type="submit" class="btn btn-danger" name="Delete Project">Delete Project</button>
+  </form>
+</div>

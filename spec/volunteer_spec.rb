@@ -79,4 +79,13 @@ describe Volunteer do
       expect(Volunteer.get_id('Jane')).to eq volunteer1.id
     end
   end
+
+  describe '#update' do
+    it 'updates volunteer info in ID and instance' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
+      volunteer1.save
+      volunteer1.update({:name => 'Jack'})
+      expect(volunteer1.name).to eq 'Jack'
+    end
+  end
 end
