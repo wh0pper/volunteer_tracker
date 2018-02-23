@@ -79,7 +79,7 @@ get('/volunteer/:id') do
 end
 
 patch('/volunteer/:id') do
-  new_name = params[:update_name]
+  new_name = params[:name]
   volunteer_id = params[:id]
   @volunteer = Volunteer.find(volunteer_id)
   @volunteer.update({:name => new_name})
