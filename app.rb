@@ -41,9 +41,9 @@ post('/project/:id') do
   project_id = params[:id]
   @project = Project.find(project_id)
   volunteer_name = params[:new_volunteer]
-  volunteer = Volunteer.new({:name => volunteer_name})
-  volunteer.save
-  volunteer.assign(project_id)
+  volunteer_id = Volunteer.get_id(volunteer_name)
+  @this_volunteer = Volunteer.find(volunteer_id)
+  @this_volunteer.assign(project_id)
   @volunteers = @project.volunteers
   @available_volunteers = Volunteer.all
   erb(:project)
