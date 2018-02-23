@@ -28,6 +28,6 @@ class Project
   end
 
   def == other_project
-    (self.title == other_project.title) & (self.id == other_project.id)
+    (self.title == other_project.title) && (self.id == other_project.id)
   end
 end
