@@ -11,7 +11,16 @@ class Volunteer
 
   def save
     DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', '#{@project_id}');")
-    @id = DB.exec("SELECT id FROM volunteers WHERE name = '#{@name}';")
+    @id = DB.exec("SELECT id FROM volunteers WHERE name = '#{@name}';").first.fetch('id').to_i
+  end
+
+  def self.all
+    results = DB.exec("SELECT * FROM volunteers;")
+    list = []
+    results.each do |result|
+      list.push(Volunteer.new({:name => result['name'], :id => result['id'].to_i, :project_id => result['project_id']}))
+    end
+    return list
   end
 
   def == other
