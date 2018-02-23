@@ -21,9 +21,16 @@ post('/') do
   erb(:home)
 end
 
-# get('project/:id') do
-#   project_id = params[:id]
-#   @project = Project.find(project_id)
-#   @volunteers = @project.volunteers
-#   erb(:project)
-# end
+get('/project/:id') do
+  project_id = params[:id]
+  @project = Project.find(project_id)
+  @volunteers = @project.volunteers
+  erb(:project)
+end
+
+post('/project/:id') do
+  project_id = params[:id]
+  @project = Project.find(project_id)
+  @volunteers = @project.volunteers
+  erb(:project)
+end

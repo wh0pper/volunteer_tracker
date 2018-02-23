@@ -28,6 +28,10 @@ class Volunteer
     Volunteer.new({:name => result['name'], :project_id => result['project_id'].to_i, :id => result['id'].to_i})
   end
 
+  def assign(project_id)
+    
+  end
+
   def == other
     (self.name == other.name) && (self.id == other.id)
   end

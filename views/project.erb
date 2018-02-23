@@ -1,0 +1,15 @@
+<h1><%= @project.title %></h1>
+<h4>Current volunteers:</h4>
+<table>
+  <% @volunteers.each do |volunteer| %>
+    <tr>
+      <th><%= volunteer.name %></th>
+    </tr>
+  <% end %>
+</table>
+
+<h4>Assign a volunteer:</h4>
+<form class="form-group" action="/project/<%= @project.id %>" method="post">
+  <input class="form-control" type="text" name="new_volunteer" placeholder="Volunteer name">
+  <button type="submit" class="btn btn-primary" name="new_volunteer">Add</button>
+</form>
