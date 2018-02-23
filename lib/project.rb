@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require 'volunteer'
+
 
 class Project
   attr_reader :title, :id
@@ -25,6 +27,15 @@ class Project
   def self.find(id)
     result = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
     Project.new({:title => result['title'], :id => (result['id'].to_i)})
+  end
+
+  def volunteers
+    results = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};")
+    list = []
+    results.each do |result|
+      list.push(Volunteer.new({:name => result['name'], :project_id => result['project_id'].to_i, :id => result['id'].to_i}))
+    end
+    return list
   end
 
   def == other_project
