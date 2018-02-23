@@ -9,8 +9,11 @@ class Volunteer
     @project_id = attributes[:project_id]
   end
 
-  def save
-    
-  end
+  # def save
+  #
+  # end
 
+  def == other
+    (self.name == other.name) & (self.id == other.id)
+  end
 end
