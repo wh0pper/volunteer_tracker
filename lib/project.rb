@@ -22,6 +22,11 @@ class Project
     return list
   end
 
+  def self.find(id)
+    result = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+    Project.new({:title => result['title'], :id => (result['id'].to_i)})
+  end
+
   def == other_project
     self.title.==(other_project.title).&(self.id.==other_project.id)
   end
