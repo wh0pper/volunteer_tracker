@@ -23,6 +23,11 @@ class Volunteer
     return list
   end
 
+  def self.find(id)
+    result = DB.exec("SELECT * FROM volunteers WHERE id = '#{id}';").first
+    Volunteer.new({:name => result['name'], :project_id => result['project_id'].to_i, :id => result['id'].to_i})
+  end
+
   def == other
     (self.name == other.name) && (self.id == other.id)
   end
