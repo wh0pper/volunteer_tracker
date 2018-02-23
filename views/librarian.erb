@@ -1,0 +1,48 @@
+
+<br>
+<div class="well">
+  <h3>Add a new book:</h3>
+  <form class="form-group" action="/librarian" method="post">
+    <input name="title" class="form-control" type="text" placeholder="Title"><br>
+    <input name="author" class="form-control" type="text" placeholder="Author"><br>
+    <input name="genre" class="form-control" type="text" placeholder="Genre"><br>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </form>
+</div>
+<br>
+<div class="well">
+  <h3>Search for book(s):</h3>
+  <form class="form-group" action="/librarian/search" method="post">
+    <label for="search_field">Search by:</label>
+    <select id="search_field" name="search_field" type="text" class="form-control">
+      <option value="title">Title</option>
+      <option value="author">Author</option>
+      <option value="genre">Genre</option>
+    </select><br>
+    <label>Search for:</label>
+    <input name="search_value" class="form-control" type="text" placeholder="Search"><br>
+    <button type="submit" class="btn btn-warning">Search</button>
+  </form>
+</div>
+
+
+  <h2>Catalog:</h2>
+  <p>Click a book's title to edit record.</p>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Copies available:</th>
+    </tr>
+      <% @book_list.each do |book| %>
+
+        <tr>
+          <td><a href="/librarian/book/<%= book.id %>"><%= book.title %></a></td>
+          <td><%= book.author %></td>
+          <td><%= book.genre %></td>
+          <td><%= book.inventory %></td>
+        </tr>
+
+      <% end %>
+  </table>
