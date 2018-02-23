@@ -63,7 +63,7 @@ describe Volunteer do
 
   describe '#assign' do
     it 'assigns a project id to a volunteer in the DB' do
-      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project1 = Project.new({:title => 'Project Assignment Test', :id => nil})
       project1.save
       volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
       volunteer1.save

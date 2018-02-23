@@ -67,8 +67,10 @@ describe Project do
       project.save
       volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project.id, :id => nil})
       volunteer1.save
+      volunteer1.assign(project.id)
       volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project.id, :id => nil})
       volunteer2.save
+      volunteer2.assign(project.id)
       expect(project.volunteers).to eq [volunteer1, volunteer2]
     end
   end
@@ -81,7 +83,7 @@ describe Project do
       expect(project.title).to eq 'Teaching Ruby to Kids'
     end
   end
-  
+
   context '#delete' do
     it 'allows a user to delete a project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})

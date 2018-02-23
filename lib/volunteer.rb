@@ -10,7 +10,7 @@ class Volunteer
   end
 
   def save
-    DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', '#{@project_id}');")
+    DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}');")
     @id = DB.exec("SELECT id FROM volunteers WHERE name = '#{@name}';").first.fetch('id').to_i
   end
 
@@ -29,7 +29,8 @@ class Volunteer
   end
 
   def assign(project_id)
-    
+    DB.exec("UPDATE volunteers SET project_id = #{project_id} WHERE id = #{@id}")
+    @project_id = DB.exec("SELECT project_id FROM volunteers WHERE name = '#{@name}';").first.fetch('project_id').to_i
   end
 
   def == other
