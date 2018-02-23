@@ -59,7 +59,6 @@ describe 'the volunteer detail page path', {:type => :feature} do
     test_volunteer.save
     test_volunteer.assign(project_id)
     visit "/project/#{project_id}"
-    save_and_open_page
     click_link('Jasmine')
     fill_in('name', :with => 'Jane')
     click_button('Update Volunteer')

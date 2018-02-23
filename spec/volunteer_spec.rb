@@ -88,4 +88,13 @@ describe Volunteer do
       expect(volunteer1.name).to eq 'Jack'
     end
   end
+
+  describe '#delete' do
+    it 'removed volunteer from database' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
+      volunteer1.save
+      volunteer1.delete
+      expect(Volunteer.all).to eq []
+    end
+  end
 end
