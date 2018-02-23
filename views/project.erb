@@ -18,9 +18,12 @@
   <h4>Assign a volunteer:</h4>
   <form class="form-group" action="/projects/<%= @project.id %>" method="post">
 
-    <select class="form-control" type="text" name="new_volunteer">
+    <select class="form-control" type="text" name="new_volunteer" required>
+        <option default value="">--</option>
       <% @available_volunteers.each do |volunteer| %>
-        <option value="<%= volunteer.name %>"><%= volunteer.name %></option>
+        <% unless @volunteers.include?(volunteer) %>
+          <option value="<%= volunteer.name %>"><%= volunteer.name %></option>
+        <% end %>  
       <% end %>
     </select><br>
     <button type="submit" class="btn btn-primary">Add</button>
