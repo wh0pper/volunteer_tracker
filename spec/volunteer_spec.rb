@@ -29,11 +29,9 @@ describe Volunteer do
     end
 
     it 'returns all volunteers' do
-      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-      project1.save
-      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => project1.id, :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
-      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project1.id, :id => nil})
+      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
       volunteer2.save
       expect(Volunteer.all).to eq [volunteer1, volunteer2]
     end
@@ -41,9 +39,7 @@ describe Volunteer do
 
   describe '#save' do
     it 'adds a volunteer to the database' do
-      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-      project1.save
-      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => project1.id, :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
       expect(Volunteer.all).to eq [volunteer1]
     end
@@ -51,11 +47,9 @@ describe Volunteer do
 
   describe '.find' do
     it 'returns a volunteer by id' do
-      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-      project1.save
-      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => project1.id, :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
-      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project1.id, :id => nil})
+      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
       volunteer2.save
       expect(Volunteer.find(volunteer1.id)).to eq volunteer1
     end

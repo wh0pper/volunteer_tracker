@@ -10,7 +10,7 @@ class Volunteer
   end
 
   def save
-    DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}');")
+    DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id});")
     @id = DB.exec("SELECT id FROM volunteers WHERE name = '#{@name}';").first.fetch('id').to_i
   end
 
