@@ -37,6 +37,11 @@ class Volunteer
     @project_id = DB.exec("SELECT project_id FROM volunteers WHERE name = '#{@name}';").first.fetch('project_id').to_i
   end
 
+  def update(attributes)
+    @name = attributes[:name]
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
   def == other
     (self.name == other.name) && (self.id == other.id)
   end

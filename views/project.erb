@@ -10,7 +10,7 @@
   <table>
     <% @volunteers.each do |volunteer| %>
       <tr>
-        <th><%= volunteer.name %></th>
+        <th><a href="/volunteer/<%=volunteer.id%>"><%= volunteer.name %></a></th>
       </tr>
     <% end %>
   </table>
