@@ -1,27 +1,28 @@
 <div class="well">
   <h1><%= @project.title %></h1>
   <form class="form-group" action="/project/<%= @project.id %>/edit" method="get">
-    <button type="submit">Edit Project</button>
+    <button type="submit" class="btn btn-info">Edit Project</button>
   </form>
 </div>
 
-
-<h4>Current volunteers:</h4>
-<table>
-  <% @volunteers.each do |volunteer| %>
-    <tr>
-      <th><%= volunteer.name %></th>
-    </tr>
-  <% end %>
-</table>
-
-<h4>Assign a volunteer:</h4>
-<form class="form-group" action="/project/<%= @project.id %>" method="post">
-
-  <select class="form-control" type="text" name="new_volunteer" placeholder="Volunteer name">
-    <% @available_volunteers.each do |volunteer| %>
-      <option value="<%= volunteer %>"><%= volunteer.name %></option>
+<div class="well">
+  <h4>Current volunteers:</h4>
+  <table>
+    <% @volunteers.each do |volunteer| %>
+      <tr>
+        <th><%= volunteer.name %></th>
+      </tr>
     <% end %>
-  </select><br>
-  <button type="submit" class="btn btn-primary" name="new_volunteer">Add</button>
-</form>
+  </table>
+
+  <h4>Assign a volunteer:</h4>
+  <form class="form-group" action="/project/<%= @project.id %>" method="post">
+
+    <select class="form-control" type="text" name="new_volunteer" placeholder="Volunteer name">
+      <% @available_volunteers.each do |volunteer| %>
+        <option value="<%= volunteer %>"><%= volunteer.name %></option>
+      <% end %>
+    </select><br>
+    <button type="submit" class="btn btn-primary" name="new_volunteer">Add</button>
+  </form>
+</div>

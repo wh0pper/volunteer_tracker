@@ -71,4 +71,12 @@ describe Volunteer do
       expect(volunteer1.project_id). to eq project1.id
     end
   end
+
+  describe '.get_id' do
+    it 'returns id given volunteer name' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :id => nil})
+      volunteer1.save
+      expect(Volunteer.get_id('Jane')).to eq volunteer1.id
+    end
+  end
 end

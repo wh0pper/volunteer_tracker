@@ -23,4 +23,15 @@
     <input class="form-control" type="text" name="volunteer_name" placeholder="Volunteer name"><br>
     <button type="submit" class="btn btn-primary" name="new_volunteer">Add</button>
   </form>
+  <% if !@volunteers_list.empty? %>
+    <h4>Current volunteers:</h4>
+    <p>click on volunteer name to view details</p>
+    <table>
+      <% @volunteers_list.each do |volunteer| %>
+        <tr>
+          <th><a href="/volunteer/<%=volunteer.id%>"><%= volunteer.name %></a></th>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
 </div>

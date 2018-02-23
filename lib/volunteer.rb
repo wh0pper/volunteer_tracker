@@ -28,8 +28,12 @@ class Volunteer
     Volunteer.new({:name => result['name'], :project_id => result['project_id'].to_i, :id => result['id'].to_i})
   end
 
+  def self.get_id(name)
+    DB.exec("SELECT id FROM volunteers WHERE name = '#{name}';").first.fetch('id').to_i
+  end
+
   def assign(project_id)
-    DB.exec("UPDATE volunteers SET project_id = #{project_id} WHERE id = #{@id}")
+    DB.exec("UPDATE volunteers SET project_id = #{project_id} WHERE id = #{@id};")
     @project_id = DB.exec("SELECT project_id FROM volunteers WHERE name = '#{@name}';").first.fetch('project_id').to_i
   end
 
