@@ -12,4 +12,8 @@ class Project
     DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
     @id = DB.exec("SELECT id FROM projects WHERE title = '#{@title}';").first.fetch('id').to_i
   end
+
+  def == other_project
+    self.title.==(other_project.title).&(self.id.==other_project.id)
+  end
 end
