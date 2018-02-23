@@ -1,6 +1,6 @@
 <div class="well">
   <h1><%= @project.title %></h1>
-  <form class="form-group" action="/project/<%= @project.id %>/edit" method="get">
+  <form class="form-group" action="/projects/<%= @project.id %>/edit" method="get">
     <button type="submit" class="btn btn-info">Edit Project</button>
   </form>
 </div>
@@ -16,7 +16,7 @@
   </table>
 
   <h4>Assign a volunteer:</h4>
-  <form class="form-group" action="/project/<%= @project.id %>" method="post">
+  <form class="form-group" action="/projects/<%= @project.id %>" method="post">
 
     <select class="form-control" type="text" name="new_volunteer">
       <% @available_volunteers.each do |volunteer| %>

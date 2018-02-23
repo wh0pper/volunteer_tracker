@@ -21,7 +21,7 @@ post('/') do
     new_project.save
   end
   if params[:volunteer_name]
-    new_volunteer = Volunteer.new({:name => params[:volunteer_name]})
+    new_volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => 0})
     new_volunteer.save
   end
   @project_list = Project.all
@@ -29,7 +29,7 @@ post('/') do
   erb(:home)
 end
 
-get('/project/:id') do
+get('/projects/:id') do
   project_id = params[:id]
   @project = Project.find(project_id)
   @volunteers = @project.volunteers
@@ -37,7 +37,7 @@ get('/project/:id') do
   erb(:project)
 end
 
-post('/project/:id') do
+post('/projects/:id') do
   project_id = params[:id]
   @project = Project.find(project_id)
   volunteer_name = params[:new_volunteer]
@@ -49,13 +49,13 @@ post('/project/:id') do
   erb(:project)
 end
 
-get('/project/:id/edit') do
+get('/projects/:id/edit') do
   project_id = params[:id]
   @project = Project.find(project_id)
   erb(:edit)
 end
 
-patch('/project/:id/edit') do
+patch('/projects/:id/edit') do
   project_id = params[:id]
   new_title = params[:title]
   @project = Project.find(project_id)
@@ -65,7 +65,7 @@ patch('/project/:id/edit') do
   erb(:project)
 end
 
-delete('/project/:id/edit') do
+delete('/projects/:id/edit') do
   project_id = params[:id]
   @project = Project.find(project_id)
   @project.delete
