@@ -1,50 +1,54 @@
-# Library Catalog
+# Volunteer Tracker
+Complete for Epicodus - Ruby Week 3 Code Review
 
-## February 21, 2018
+## February 23, 2018
 
 #### Sinatra, PostgreSQL App
 
 #### By Jared Clemmensen
 
 ## Description
-  A CRUD application...
+  A CRUD application that tracks projects and associated volunteers for a nonprofit using a SQL database.
 
 ## Specs
 
 #### Backend
 ##### Database
-  1. Table for books
-      * Keeps track of book info and checkout status, inventory
-  2. Table for library patrons
-      * Keeps track of patron info and checkout history + due dates
-  3. Junction table for patrons to books relationship    
-  4. (additional) Table for authors
-      * Keeps track of patron info and checkout history + due dates
+  1. Table for projects
+    *
+  2. Table for volunteers
+    * Each volunteer assigned to only one project
+
 
 ##### Custom ruby classes      
-  3. Book
-      * initialize, save to DB, update in DB, checkout, search
-  4. Search doctors table by specialty and return list of all ( list(specialty) )
-  5. List all patients, and doctors ( .read_all() )
-  6. List all patients of one doctor ( .patients )
-  7. Return doctor of any given patient ( .doctor )
+  3. Project
+    * initialize, save to DB, update in DB, delete, read all,
+  4. Volunteers
+    * initialize, save to DB, update in DB, delete, assign project, read all, read all for a project,
+
 
 #### Frontend
-  1.
+##### User stories
+  1. As a non-profit employee, I want to view, add, update and delete projects.
+  2. As a non-profit employee, I want to view and add volunteers.
+  3. As a non-profit employee, I want to add volunteers to a project.
+  4. As a non-profit employee, I want to view all volunteers on a certain project.
+
+
 
 
 ## Setup/Installation Requirements
   1. install ruby 2.2.2
   2. install bundler gem ($ gem install bundler)
-  3. clone or download word_definer repository
+  3. clone or download volunteer_tracker repository
   4. run bundler in repository ($ bundle)
   5. host locally with Sinatra ($ ruby app.rb)
 
 ## Technologies Used
-  This application was built with Sinatra and uses Postgresql for database management.
+  This application was written in Ruby, built with Sinatra and uses Postgresql for database management.
 
 ## License
-  Copyright (c) 2018 Jared Clemmensen, Russell Hofvendahl
+  Copyright (c) 2018 Jared Clemmensen
 
   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
