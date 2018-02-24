@@ -18,7 +18,10 @@ end
 post('/') do
   if params[:title]
     new_project = Project.new({:title => params[:title]})
-    new_project.save
+    confirm = new_project.save
+    if !confirm
+      @error = "A project with that title already exists."
+    end
   end
   if params[:volunteer_name]
     new_volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => 0})
@@ -59,7 +62,10 @@ patch('/projects/:id/edit') do
   project_id = params[:id]
   new_title = params[:title]
   @project = Project.find(project_id)
-  @project.update({:title => new_title})
+  confirm = @project.update({:title => new_title})
+  if !confirm
+    @error = "Update unsuccessful. A project with that title already exists."
+  end
   @volunteers = @project.volunteers
   @available_volunteers = Volunteer.all
   erb(:project)

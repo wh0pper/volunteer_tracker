@@ -1,5 +1,8 @@
 <div class="well">
   <h1><%= @project.title %></h1>
+  <% if @error %>
+    <%= @error %><br>
+  <% end %>
   <form class="form-group" action="/projects/<%= @project.id %>/edit" method="get">
     <button type="submit" class="btn btn-info">Edit Project</button>
   </form>
@@ -23,7 +26,7 @@
       <% @available_volunteers.each do |volunteer| %>
         <% unless @volunteers.include?(volunteer) %>
           <option value="<%= volunteer.name %>"><%= volunteer.name %></option>
-        <% end %>  
+        <% end %>
       <% end %>
     </select><br>
     <button type="submit" class="btn btn-primary">Add</button>

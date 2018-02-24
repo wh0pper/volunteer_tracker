@@ -13,6 +13,8 @@ class Project
   def save
     if DB.exec("SELECT EXISTS (SELECT * FROM projects WHERE title = '#{@title}');").first.fetch('exists') == 'f'
       DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
+    else
+      return false
     end
     @id = DB.exec("SELECT id FROM projects WHERE title = '#{@title}';").first.fetch('id').to_i
   end
@@ -41,8 +43,12 @@ class Project
   end
 
   def update(attributes)
-    @title = attributes[:title]
-    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+    if DB.exec("SELECT EXISTS (SELECT * FROM projects WHERE title = '#{attributes[:title]}');").first.fetch('exists') == 'f'
+      @title = attributes[:title]
+      DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+    else
+      return false
+    end
   end
 
   def delete
