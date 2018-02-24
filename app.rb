@@ -75,6 +75,9 @@ end
 get('/volunteer/:id') do
   volunteer_id = params[:id]
   @volunteer = Volunteer.find(volunteer_id)
+  unless @volunteer.project_id==0
+    @project = Project.find(@volunteer.project_id)
+  end
   erb(:volunteer)
 end
 

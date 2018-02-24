@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>Volunteer Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="well">
+        <h2>Volunteer Tracker</h2>
+        <form class="" action="/" method="post">
+          <button type="submit" class="btn btn-default">Home</button>
+        </form>
+      </div>
+        <div class="well">
+  <h1>Teaching Kids to Code</h1>
+  <form class="form-group" action="/project/394/edit" method="get">
+    <button type="submit" class="btn btn-info">Edit Project</button>
+  </form>
+</div>
+
+<div class="well">
+  <h4>Current volunteers:</h4>
+  <table>
+      <tr>
+        <th><a href="/volunteer/219">Jasmine</a></th>
+      </tr>
+  </table>
+
+  <h4>Assign a volunteer:</h4>
+  <form class="form-group" action="/project/394" method="post">
+
+    <select class="form-control" type="text" name="new_volunteer">
+        <option value="Jasmine">Jasmine</option>
+    </select><br>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+
+    </div>
+  </body>
+</html>

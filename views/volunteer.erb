@@ -1,6 +1,9 @@
 <div class="well">
 
-  <h1>Current info: <%= @volunteer.name %></h1>
+  <h1>Name: <%= @volunteer.name %></h1>
+  <% unless @volunteer.project_id == 0 %>
+    <h3>Currently assigned to <%= @project.title %></h3>
+  <% end %>
 
   <form class="form-group" action="/volunteer/<%= @volunteer.id %>" method="post">
     <input name="_method" type="hidden" value="patch"/>

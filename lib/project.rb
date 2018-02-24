@@ -11,7 +11,9 @@ class Project
   end
 
   def save
-    DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
+    if DB.exec("SELECT EXISTS (SELECT * FROM projects WHERE title = '#{@title}');").first.fetch('exists') == 'f'
+      DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
+    end
     @id = DB.exec("SELECT id FROM projects WHERE title = '#{@title}';").first.fetch('id').to_i
   end
 
