@@ -25,6 +25,7 @@ class Volunteer
 
   def self.find(id)
     result = DB.exec("SELECT * FROM volunteers WHERE id = '#{id}';").first
+    binding.pry
     Volunteer.new({:name => result['name'], :project_id => result['project_id'].to_i, :id => result['id'].to_i})
   end
 

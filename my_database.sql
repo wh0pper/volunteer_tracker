@@ -15,14 +15,14 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -119,7 +119,7 @@ ALTER TABLE ONLY volunteers ALTER COLUMN id SET DEFAULT nextval('volunteers_id_s
 -- Name: project_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('project_id_seq', 1, false);
+SELECT pg_catalog.setval('project_id_seq', 781, true);
 
 
 --
@@ -142,7 +142,7 @@ COPY volunteers (id, name, project_id) FROM stdin;
 -- Name: volunteers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('volunteers_id_seq', 1, false);
+SELECT pg_catalog.setval('volunteers_id_seq', 532, true);
 
 
 --
@@ -154,6 +154,14 @@ ALTER TABLE ONLY projects
 
 
 --
+-- Name: projects projects_title_key; Type: CONSTRAINT; Schema: public; Owner: Guest
+--
+
+ALTER TABLE ONLY projects
+    ADD CONSTRAINT projects_title_key UNIQUE (title);
+
+
+--
 -- Name: volunteers volunteers_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
 --
 
@@ -162,13 +170,6 @@ ALTER TABLE ONLY volunteers
 
 
 --
--- Name: volunteers volunteers_project_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Guest
---
-
-ALTER TABLE ONLY volunteers
-    ADD CONSTRAINT volunteers_project_id_fkey FOREIGN KEY (project_id) REFERENCES projects(id);
-
-
---
 -- PostgreSQL database dump complete
 --
+

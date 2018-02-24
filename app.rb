@@ -91,7 +91,11 @@ patch('/volunteer/:id') do
   new_name = params[:name]
   volunteer_id = params[:id]
   @volunteer = Volunteer.find(volunteer_id)
+  puts @volunteer.name
   @volunteer.update({:name => new_name})
+  puts @volunteer.name
+  puts @volunteer.id
+  binding.pry
   erb(:volunteer)
 end
 

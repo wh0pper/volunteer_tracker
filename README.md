@@ -15,7 +15,6 @@ Complete for Epicodus - Ruby Week 3 Code Review
 #### Backend
 ##### Database
   1. Table for projects
-    *
   2. Table for volunteers
     * Each volunteer assigned to only one project
 
@@ -36,7 +35,7 @@ Complete for Epicodus - Ruby Week 3 Code Review
 
 
 ## Known bugs
-  User should not try to enter multiple projects with the same name 
+  
 
 ## Setup/Installation Requirements
   1. install ruby 2.2.2
