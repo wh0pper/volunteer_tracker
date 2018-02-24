@@ -88,14 +88,11 @@ get('/volunteer/:id') do
 end
 
 patch('/volunteer/:id') do
-  new_name = params[:name]
+  new_name = params[:update_name]
   volunteer_id = params[:id]
   @volunteer = Volunteer.find(volunteer_id)
-  puts @volunteer.name
   @volunteer.update({:name => new_name})
-  puts @volunteer.name
-  puts @volunteer.id
-  binding.pry
+  @project = Project.find(@volunteer.project_id)
   erb(:volunteer)
 end
 

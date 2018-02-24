@@ -7,8 +7,8 @@
 
   <form class="form-group" action="/volunteer/<%= @volunteer.id %>" method="post">
     <input name="_method" type="hidden" value="patch"/>
-    <label for="name">Update name:</label>
-    <input class="form-control" name="name" placeholder="<%= @volunteer.name %>" required><br>
+    <label>Update name:</label>
+    <input class="form-control" name="update_name" id="name" placeholder="<%= @volunteer.name %>" required><br>
     <button type="submit" class="btn btn-warning">Update Volunteer</button>
   </form>
 
