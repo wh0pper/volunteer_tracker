@@ -35,14 +35,15 @@ Complete for Epicodus - Ruby Week 3 Code Review
 
 
 ## Known bugs
-  
+
 
 ## Setup/Installation Requirements
   1. install ruby 2.2.2
   2. install bundler gem ($ gem install bundler)
   3. clone or download volunteer_tracker repository
   4. run bundler in repository ($ bundle)
-  5. host locally with Sinatra ($ ruby app.rb)
+  5. set up necessary SQL databases locally as per my_database.sql
+  6. host locally with Sinatra ($ ruby app.rb)
 
 ## Technologies Used
   This application was written in Ruby, built with Sinatra and uses Postgresql for database management.
